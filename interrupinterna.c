@@ -26,13 +26,11 @@ int main()
 {
  DDRC = 0XFF; //PuertoC salida
  PORTC = 1; //PIN0 del puerto C activado
- PORTD |= (1<<PD2); //Activar resistencia de PULLUP en
-PIN0 del puerto D
+ PORTD |= (1<<PD2); //Activar resistencia de PULLDOWN en PIN0 del puerto D
  interrupt_TIMER0_Init(); //250ms de retardo
  while (1){
  if((PIND&(1<<PIND2))==0){ //si está presionado entra al if
-while((PIND&(1<<PIND2))==0){} //espera a que se suelte la
-botonera
+while((PIND&(1<<PIND2))==0){} //espera a que se suelte la botonera
 abajo = !abajo;
  }
  } return 0;
