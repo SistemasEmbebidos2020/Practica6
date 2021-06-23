@@ -27,6 +27,7 @@ ISR(TIMER0_OVF_vect){
  TCNT0 = 12;
 }
 ISR(INT0_vect){
+ //EIFR &= ~(1<<INTF0);
 }
 ISR(ADC_vect){
  PORTB =ADCL;
