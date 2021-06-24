@@ -5,10 +5,11 @@
 volatile bool abajo = true;
 //FUNCIONES
 void interrupt_TIMER0_Init(){
- cli();
+ cli(); //deshabilitar momentáneamente las interrupciones
+con el comando
  TCCR0B = 0b101;
  TIMSK0 = 1;
- sei();
+ sei(); //habilitar las interrupciones
  TCNT0 = 12; //250ms
 }
 ISR(TIMER0_OVF_vect){ //INTERRUPCIONES
