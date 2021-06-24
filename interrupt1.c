@@ -2,7 +2,7 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include <stdbool.h>
-bool abajo = true;
+static volatile bool abajo = true; // static variable global // volatile diferentes hilos o interrupciones + programa principal
 //FUNCIONES
 void isPress(){
  if((PIND&(1<<PIND2))==0){ //si está presionado entra al if
