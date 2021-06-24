@@ -6,7 +6,6 @@ volatile bool abajo = true;
 //FUNCIONES
 void interrupt_TIMER0_Init(){
  cli(); //deshabilitar momentáneamente las interrupciones
-con el comando
  TCCR0B = 0b101;
  TIMSK0 = 1;
  sei(); //habilitar las interrupciones
