@@ -13,19 +13,19 @@ void interrupt_TIMER0_Init(){
 }
 ISR(TIMER0_OVF_vect){ //INTERRUPCIONES //se hace el desplazamiento
  if(abajo){
- PORTC = PORTC<<1;
- if(PORTC == 64) PORTC = 1;
+ PORTB = PORTB<<1;
+ if(PORTB == 64) PORTB = 1;
  }
  else{
- PORTC = PORTC>>1;
- if(PORTC == 0) PORTC = 32;
+ PORTB = PORTB>>1;
+ if(PORTCB == 0) PORTB = 32;
  }
  TCNT0 = 12;
 }
 int main()
 {
- DDRC = 0XFF; //PuertoC salida
- PORTC = 1; //PIN0 del puerto C activado
+ DDRB = 0XFF; //PuertoC salida
+ PORTB = 1; //PIN0 del puerto C activado
  PORTD |= (1<<PD2); //Activar resistencia de PULLDOWN en PIN0 del puerto D
  interrupt_TIMER0_Init(); //250ms de retardo
  while (1){
