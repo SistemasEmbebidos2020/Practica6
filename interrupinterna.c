@@ -18,7 +18,7 @@ ISR(TIMER0_OVF_vect){ //INTERRUPCIONES //se hace el desplazamiento
  }
  else{
  PORTB = PORTB>>1;
- if(PORTCB == 0) PORTB = 32;
+ if(PORTB == 0) PORTB = 32;
  }
  TCNT0 = 12;
 }
@@ -26,11 +26,11 @@ int main()
 {
  DDRB = 0XFF; //PuertoC salida
  PORTB = 1; //PIN0 del puerto C activado
- PORTD |= (1<<PD2); //Activar resistencia de PULLDOWN en PIN0 del puerto D
  interrupt_TIMER0_Init(); //250ms de retardo
+PORTD |= (1<<PD2); //Activar resistencia de PULLDOWN en PIN0 del puerto D
  while (1){
- if((PIND&(1<<PIND2))==0){ //si está presionado entra al if 
-while((PIND&(1<<PIND2))==0){} //espera a que se suelte la botonera
+ if(!(PIND&(1<<PIND2))){ //si está presionado entra al if 
+while(!(PIND&(1<<PIND2))){} //espera a que se suelte la botonera
 abajo = !abajo;
  }
  } return 0;
