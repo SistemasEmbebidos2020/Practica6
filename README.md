@@ -1,4 +1,4 @@
-# Practica7
+# Practica6
 
 # CLONE
 - git status
