@@ -47,5 +47,9 @@ int main()
  ADC_Init();
  interrupt_INT0_Init();
  interrupt_TIMER0_Init(); //250ms de retardo
+serial_begin(9600);
+while(1){
+;
+}
 return 0;
 }
