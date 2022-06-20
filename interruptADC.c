@@ -41,11 +41,11 @@ dtostrf(r, 2, 4, rec1);
 serial_println_str(rec1);
 }
 //MAIN
-void ctrl()
+int main()
 {
  PORTD |= (1<<PD2); //Activar resistencia de PULLUP en PIN0 del puerto D
  ADC_Init();
  interrupt_INT0_Init();
  interrupt_TIMER0_Init(); //250ms de retardo
-
+return 0;
 }
