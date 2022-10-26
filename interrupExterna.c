@@ -19,6 +19,8 @@ int main()
 {
  DDRB = 0XFF; //PuertoB salida
  PORTB = 1; //PIN0 del puerto B activado
+ ////SE PUEDE ACTIVAR LA RESISTENCIA PULLUP DE CIERTOS PINES DEL ATMEGA328P
+ /////ESTO SE LO REALIZA CON EL SIGUIENTE CODIGO
  PORTD |= (1<<PD2); //Activar resistencia de PULLUP en INT0 del puerto D
  interrupt_INT0_Init();
  while (1){
