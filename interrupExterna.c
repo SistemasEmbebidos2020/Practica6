@@ -17,9 +17,9 @@ ISR(INT0_vect){
 //MAIN
 int main()
 {
- DDRB = 0XFF; //PuertoC salida
- PORTB = 1; //PIN0 del puerto C activado
- PORTD |= (1<<PD2); //Activar resistencia de PULLUP en PIN0 del puerto D
+ DDRB = 0XFF; //PuertoB salida
+ PORTB = 1; //PIN0 del puerto B activado
+ PORTD |= (1<<PD2); //Activar resistencia de PULLUP en INT0 del puerto D
  interrupt_INT0_Init();
  while (1){
  _delay_ms(250);
