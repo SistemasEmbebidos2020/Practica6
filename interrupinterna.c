@@ -3,6 +3,7 @@
 #include <util/delay.h>
 #include <stdbool.h>
 volatile bool abajo = true;
+int cnt=0;
 //FUNCIONES
 void interrupt_TIMER0_Init(){
  cli(); //deshabilitar momentáneamente las interrupciones
@@ -12,6 +13,8 @@ void interrupt_TIMER0_Init(){
  TCNT0 = 12; //250ms // tiempo de la interrupcion
 }
 ISR(TIMER0_OVF_vect){ //INTERRUPCIONES //se hace el desplazamiento
+cnt++;
+if (cnt ==61){
  if(abajo){
  PORTB = PORTB<<1;
  if(PORTB == 64) PORTB = 1;
@@ -21,6 +24,8 @@ ISR(TIMER0_OVF_vect){ //INTERRUPCIONES //se hace el desplazamiento
  if(PORTB == 0) PORTB = 32;
  }
  TCNT0 = 12;
+cnt=0;
+}
 }
 int main()
 {
