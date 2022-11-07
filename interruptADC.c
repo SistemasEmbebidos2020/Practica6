@@ -21,7 +21,7 @@ void interrupt_TIMER1_Init(){
  TCNT1 =  61630; //250ms   para 1 segundo 49911
 }
 void ADC_Init(){
- ADMUX = 0b000; //ADC0 
+ ADMUX = 0b1000000; //ADC0 
  ADCSRA = 0b10101111; //ADC activado modo automático y preescalador 8
  //ADCSRB= 0b10; //Modo interrupción externa //ADIE(3) en 1 para habilitar la interrupción por la terminación de una conversión analógica.
  ADCSRB= 0b110; //Modo Timer1 (250ms)
